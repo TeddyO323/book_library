@@ -1,0 +1,55 @@
+<div class="show-page">
+  <h1 class="book-title"><%= @book.title %></h1>
+</div>
+
+<div class="container book-container">
+  <div class="row book-content">
+    <!-- Left Column: Book Image -->
+    <div class="col-lg-6 book-image" data-aos="fade-right">
+      <% if @book.image.present? && File.exist?(Rails.root.join("public/images/#{@book.image}")) %>
+        <%= image_tag "/images/#{@book.image}", alt: @book.title, class: "img-fluid" %>
+      <% else %>
+        <%= image_tag "/images/default-book.png", alt: "Default Book Image", class: "img-fluid" %>
+      <% end %>
+    </div>
+
+    <!-- Right Column: Book Details -->
+    <div class="col-lg-6 book-details" data-aos="fade-left">
+      <h3>Details</h3>
+      <div class="row">
+        <!-- First Column of Details -->
+        <div class="col-md-6">
+          <p><span class="label">Author:</span> <%= @book.author %></p>
+          <p><span class="label">ISBN:</span> <%= @book.isbn %></p>
+          <p><span class="label">Published Year:</span> <%= @book.published_year || "Unknown" %></p>
+          <p><span class="label">Genre:</span> <%= @book.genre || "Unknown" %></p>
+        </div>
+        <!-- Second Column of Details -->
+        <div class="col-md-6">
+          <p><span class="label">Pages:</span> <%= @book.pages || "Unknown" %></p>
+          <p><span class="label">Publisher:</span> <%= @book.publisher || "Unknown" %></p>
+          <p><span class="label">Language:</span> <%= @book.language || "Unknown" %></p>
+          <p><span class="label">Format:</span> <%= @book.format || "Unknown" %></p>
+        </div>
+      </div>
+      <!-- Description (Full Width) -->
+      <p><span class="label">Description:</span> <%= @book.description || "No description available" %></p>
+
+      <!-- Status and Borrow Button -->
+      <% if @book.borrowed? %>
+    <p class="status not-available">  <span class="label">Status:</span> Not Available</p>
+      <% else %>
+      <p class="status available"> <span class="label">Status:</span> Available</p>
+        <form action="<%= borrow_book_path(@book) %>" method="post" class="borrow-form">
+          <input type="hidden" name="_method" value="patch">
+          <input type="submit" value="Borrow" class="borrow-button">
+        </form>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Back Link Centered at Bottom -->
+  <div class="back-link">
+    <%= link_to "Back to Books", books_path, class: "back-button" %>
+  </div>
+</div>

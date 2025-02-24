@@ -1,0 +1,892 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+/* Reset some default styles */
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+#backgroundCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Ensure the canvas is behind all other content */
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c, #040404); /* Gradient background */
+  animation: gradientShift 10s infinite alternate; /* Subtle gradient animation */
+  overflow: hidden;
+}
+body {
+  background-color: black;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  background: transparent;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    mix-blend-mode: overlay; /* Blend the gradient with the background canvas */
+    animation: gradientFade 15s infinite alternate; /* Animate gradient for a soft glow */
+  }
+  
+  
+  
+
+
+  
+  @keyframes gradientFade {
+    0% {
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.8), #040404 60%);
+    }
+    100% {
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.6), #1a1a1a 60%);
+    }
+  }
+  
+  /* Add a Fading Border Around the Body */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    pointer-events: none; /* Ensure this doesn't interfere with interaction */
+    animation: borderGlow 5s infinite alternate;
+  }
+  
+  @keyframes borderGlow {
+    0% {
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+        border-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+  }
+  
+  /* General container */
+  .containers {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .containers h1 {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 40px;
+    color: #fff;
+    margin-top: 15%;
+    text-align: left;
+  }
+  
+  .img-box {
+    margin: 20px 0; /* Reduce margin */
+    text-align: right; /* Align image to the right */
+  }
+  
+  .img-box img {
+    width: 50%; /* Make image smaller */
+    max-width: 300px; /* Set a max width */
+    height: auto; /* Maintain aspect ratio */
+    -webkit-animation: upDown 5s infinite;
+    animation: upDown 5s infinite;
+    margin-right: 20px;
+  }
+  
+  @-webkit-keyframes upDown {
+    0% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+    50% {
+      -webkit-transform: translateY(20px);
+      transform: translateY(20px);
+    }
+    100% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes upDown {
+    0% {
+      transform: translateY(-20px);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .welcome-text {
+    width: 45%; /* Set width for welcome message */
+    float: left; /* Align text to the left */
+    font-size: 1.5rem;
+  }
+  
+  .welcome-text h1 {
+   font-size: 3rem;
+      text-transform: uppercase;
+      margin-left: 2%;
+      text-align: left;
+      margin-bottom: 15px;
+      color: #ffffff;
+  }
+  
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .welcome-text p {
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 2%;
+
+  }
+  
+  
+h1{
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+}
+.tbl-header{
+  background-color: rgba(255,255,255,0.3);
+ }
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+section{
+  margin: 50px;
+}
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 6px;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+} 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+  /* Links */
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .return-button {
+    background-color: #dc3545; /* Red color */
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+  }
+  
+  .return-button:hover {
+    background-color: #c82333; /* Darker red */
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Centering elements */
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Profile Page Styles */
+
+/* Navbar Styles */
+/* Nav Bar Wrapper */
+.navb-ar {
+  position: absolute;  /* Ensures it stays at the top-right */
+  top: 10px;           /* Adjusts the top position */
+  right: 20px;         /* Moves it to the right */
+  background: none;    /* Removes background */
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  
+}
+
+/* Navbar List */
+.navb-ar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Items */
+.navb-ar ul li {
+  display: inline-block;
+}
+
+/* Navbar Links */
+.navb-ar ul li a {
+  color: white;        /* Adjust text color */
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.navb-ar ul li a:hover {
+  color: rgb(241, 241, 245);      /* Highlight effect */
+}
+
+.navbar {
+  margin-left: 7.9%;
+  margin-top: 10px; /* Adjust top margin as necessary */
+  display: flex;
+  justify-content: space-between; /* Keeps brand on left, nav items on right */
+  align-items: right;
+  width: 94%; /* Ensure the nav menu spans the entire width */
+}
+
+.navbar-brand {
+  margin-left: 20px; /* Add spacing from the left */
+}
+
+.navbar-brand span {
+  font-size: 24px;
+  color: #e9f1f1;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.navbar ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: flex-end; /* Align menu items to the right */
+  width: auto;
+}
+
+.navbar > ul > li {
+  margin-left: 30px;
+}
+
+
+.navbar a {
+  display: block;
+  position: relative;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  font-weight: 300;
+  text-align: right; /* Align text to the right */
+  text-transform: uppercase;
+  padding: 8px 12px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar a:before {
+  content: "";
+  position: absolute;
+  width: 20px; /* Smaller underline width */
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #00f;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effects */
+.navbar a:hover:before,
+.navbar li:hover > a:before,
+.navbar .active > a:before {
+  visibility: visible;
+  width: 20px; /* Smaller width on hover */
+}
+
+.navbar a:hover,
+.navbar .active > a,
+.navbar li:hover > a {
+  color: #00f;
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+/* Remove any margin or padding affecting layout */
+body, html {
+  margin: 0;
+  padding: 0;
+
+}
+
+
+
+.profile-container {
+  max-width: 600px;
+  margin: 150px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: left;
+  
+}
+
+.profile-pic-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc; /* Light gray placeholder */
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.profile-details p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #333;
+  
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Profile Image */
+.profile-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile-toggle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+/* Profile Dropdown */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Profile Image */
+.profile-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile-toggle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+/* Hide dropdown initially */
+.dropdown-menu {
+  min-width: 150px; /* Ensures a reasonable minimum width */
+  white-space: nowrap; /* Prevents line breaks */
+
+  position: absolute;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  right: 0;
+  top: 45px;
+  width: 150px;
+  
+  /* Fix: Start fully hidden */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0; /* Fully transparent */
+  transform: scaleY(0); /* Shrinks dropdown */
+  transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transform-origin: top;
+  border: none; /* Hide border initially */
+
+  display: flex;  /* If flex is needed */
+  flex-direction: column;  /* Stack items vertically */
+  align-items: flex-start;  /* Align text to the left */
+  padding: 10px 0;  /* Add spacing */
+}
+
+/* When dropdown is active */
+.dropdown-menu.show {
+  max-height: 150px;
+  opacity: 1;
+  transform: scaleY(1); /* Expand smoothly */
+  border: 1px solid #ddd; /* Add border when visible */
+}
+
+.dropdown-menu li {
+  text-align: left; /* Align text to the left */
+}
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  background: #f0f0f0;
+}
+
+/* Slider Section */
+.slider_section {
+  background-color: #242525; 
+  padding: 60px 0;
+  width: 80%; /* Match services width */
+  margin-left: 10%; /* Match services alignment */
+  position: relative; /* Ensure curve is positioned correctly */
+  color: white;
+  margin-bottom: 0;
+
+}
+
+/* Services Section */
+.service_section {
+  background-color: #1082f5; /* Light Gray */
+  width: 80%; /* Same width */
+  margin-left: 10%; /* Same alignment */
+  padding: 60px 0;
+  margin-top: 0; /* No space between sections */
+  position: relative;
+}
+
+.service_section .fa {
+  color: rgb(221, 12, 12);
+  background-color: #2c3e50; /* Dark blue background */
+  padding: 10px;
+  border-radius: 50%; /* Makes it circular */
+}
+
+/* Curved Divider */
+.curve-divider {
+  width: 80%; /* Same width as sections */
+  margin-left: 10.01%; /* Align with sections */
+  position: absolute;
+  bottom: -6px; /* Ensures no gap */
+  left: 0;
+  
+}
+
+.curve-divider svg {
+  width: 100%;
+  height: auto;
+  
+}
+
+/* Ensure buttons appear above curve */
+.btn-box {
+  position: relative;
+  z-index: 3; /* Make sure buttons are on top */
+}
+
+/* Style for buttons */
+.btn1 {
+  background-color: #242525;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 10px 5px;
+}
+
+.btn1:hover {
+  background-color: #242525;
+}
+.footer p {
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.footer .container {
+  max-width: 1200px;
+  margin: auto;
+}
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+/* Background and Layout for Services Section */
+.service_section {
+  background-color: #f8f9fa; /* Light Gray */
+  width: 80%;
+  margin-left: 10%;
+  padding: 60px 0;
+  margin-top: 0; /* Remove any gap */
+  position: relative;
+  text-align: center; /* Center content */
+}
+.service_section p {
+  max-width: 600px; /* Set a max width */
+  margin: 0 auto; /* Center text */
+  color: #333; /* Dark gray text */
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+.service_section h2 {
+  margin-bottom: 20px;
+  color: #333; /* Dark gray text */
+  font-size: 350%;
+  text-transform: uppercase;
+  
+}
+/* Service Grid Styling */
+.service_container .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between boxes */
+  align-items: stretch; /* Ensures all boxes are the same height */
+}
+
+/* Service Box Styling */
+.service_container .box {
+  width: 300px; /* Set a fixed width */
+  height: 320px; /* Set a fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Keeps content evenly spaced */
+  overflow: hidden; /* Prevents overflow */
+  text-align: center;
+  word-wrap: break-word; /* Ensures text wraps within the box */
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+
+.service_section .fas {
+  color: white;
+  background-color: #2c3e50; /* Dark blue background */
+  padding: 10px;
+  border-radius: 50%; /* Makes it circular */
+
+}
+
+.service_container .box:hover {
+  transform: translateY(-5px);
+}
+
+
+
+/* Heading and Text Styling */
+.service_container .detail-box h5 {
+  font-size: 1.4rem;
+  color: #2c3e50;
+}
+
+.service_container .detail-box p {
+  max-width: 100%; /* Prevents text from going beyond the box */
+  white-space: normal; /* Ensures text wraps */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds '...' if text is too long */
+}
+
+/* =================================SHOW.HTML.ERB PAGE================================================= */
+/* Ensure the title stays above the container */
+.book-title {
+  position: absolute;
+  top: 15%; /* Adjust as needed */
+  left: 10%; /* Align to the left */
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 40px;
+  color: white;
+  margin-bottom: 0;
+}
+
+/* Prevent the container from shifting down */
+.book-container {
+  position: relative;
+}
+
+/* General container */
+.book-container {
+  background-color: #242525; 
+  padding: 60px 0;
+  width: 97%;
+  margin: auto;
+  color: white;
+  margin-top: 13%;
+}
+
+/* Titles */
+.book-container h1 {
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 40px;
+  text-align: left;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.book-container h3 {
+  font-weight: 700;
+  font-size: 30px;
+  color: #00f;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.book-container p {
+  font-size: 16px;
+  color: #fff;
+  padding-bottom: 15px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.book-container span {
+  font-size: 16px;
+  color: #00f;
+  padding-bottom: 15px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* Layout Fix: Force 50/50 Width */
+/* Layout Fix: Force 50/50 Width */
+.book-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px; /* Space between the two sides */
+  justify-content: center;
+}
+
+/* Reduce Image Size */
+.book-image {
+  flex: 1;
+  max-width: 30%; /* Reduce width */
+  display: flex;
+  justify-content: center; /* Center the image */
+}
+
+.book-image img {
+  border-radius: 10px;
+  margin-left: -30%;
+  width: 120%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Ensures the image takes the full width of its column */
+  height: auto; /* Maintain aspect ratio */
+  max-height: none; /* Allow natural height */
+  object-fit: cover; /* Ensures image fills the container and avoids distortion */
+  margin-bottom: 20px; /* Adds spacing below the image */
+}
+
+/* Details Section */
+.ls {
+  flex: 1;
+  max-width: 50%;
+}
+
+/* Details Section */
+
+.status {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.status.available {
+  color: green;
+}
+
+.status.not-available {
+  color: red;
+}
+
+/* Buttons */
+.borrow-button {
+  background: #00f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.borrow-button:hover {
+  background: #0056b3;
+}
+
+/* Back link centered at the bottom */
+.back-link {
+  text-align: center;
+  margin-top: 30px; /* Add space from details section */
+}
+
+.back-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #6c757d;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.back-button:hover {
+  background: #5a6268;
+}
+
+
+/* Responsive Fix */
+@media (max-width: 992px) {
+  .book-content {
+    flex-direction: column;
+  }
+  .book-image, .book-details {
+    max-width: 100%;
+  }
+}
+/*==========================================REQUEST_BOOKS.HTML.ERB PAGE=======================================*/
+
+.request-book-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.request-book-form .form-group {
+  margin-bottom: 15px;
+}
+
+.request-book-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.request-book-form .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.request-book-form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.request-book-form button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}

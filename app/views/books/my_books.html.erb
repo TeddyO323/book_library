@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Borrowed Books</title>
+</head>
+<body>
+
+<div class="containers mt-4">
+  <h1>My Borrowed Books</h1>
+
+  <% if @borrowed_books.any? %>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+          <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Issue Date</th>
+            <th>Return Date</th>
+            <th>Fines</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <% @borrowed_books.each do |book| %>
+            <tr>
+<td><%= book.isbn %></td>
+<td><%= link_to book.title, book_path(book) %></td>
+<td><%= current_user.borrowings.find_by(book: book)&.created_at&.strftime("%d-%m-%Y") || "N/A" %></td>
+<td><%= current_user.borrowings.find_by(book: book)&.due_date&.strftime("%d-%m-%Y") || "N/A" %></td>
+<td><%= current_user.borrowings.find_by(book: book)&.fines || "0.00" %></td>
+
+
+              <td>
+                <% if book.overdue? %>
+                  <span class="badge bg-danger">Overdue</span>
+                <% else %>
+                  <span class="badge bg-warning">Borrowed</span>
+                <% end %>
+              </td>
+              <td>
+                <%= button_to "Return", return_book_book_path(book), method: :patch, class: "btn btn-danger btn-sm rounded-pill shadow return-button", 
+                    data: { book_title: book.title } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <p>You have not borrowed any books yet.</p>
+  <% end %>
+</div>
+
+</body>
+</html>

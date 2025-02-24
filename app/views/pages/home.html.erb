@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title> CommonShelf 📚 </title>
+
+  <!-- bootstrap core css -->
+<%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+
+  <!-- font awesome style -->
+
+
+
+</head>
+
+<body>
+
+
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              CommonShelf 📚
+            </span>
+          </a>
+
+
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+ <section class="slider_section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left Side: Welcome Message & Buttons -->
+      <div class="clearfix">
+  <div class="welcome-text">
+    <h1>Welcome to CommonShelf</h1>
+    <p>Your go-to platform for borrowing and managing books online.</p>
+  </div>
+  <div class="img-box">
+    <img src="/images/photpo.png" alt="Library">
+  </div>
+</div>
+
+          <div class="btn-box">
+            <a href="<%= new_user_session_path %>" class="btn1">Log In</a>
+            <a href="<%= new_user_registration_path %>" class="btn1">Sign Up</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side: Image -->
+      <div class="col-md-6 text-center">
+       
+      </div>
+    </div>
+  </div>
+</section>
+<div class="curve-divider">
+  <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#f8f9fa" d="M0,160L60,149.3C120,139,240,117,360,128C480,139,600,181,720,197.3C840,213,960,203,1080,186.7C1200,171,1320,149,1380,138.7L1440,128V320H0Z"></path>
+  </svg>
+</div>
+
+<!-- Service Section -->
+<section class="service_section">
+  <div class="service_container">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>Our <span>Services</span></h2>
+        <p>Explore a variety of books, borrow with ease, and enjoy seamless reading.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="box">
+            <div class="icon-box">
+              <i class="fas fa-book-open"></i> <!-- Borrow Books Icon -->
+            </div>
+            <div class="detail-box">
+              <h5>Borrow Books</h5>
+              <p>Borrow books with just a few clicks and enjoy reading at your convenience.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="icon-box">
+              <i class="fas fa-undo-alt"></i> <!-- Return Books Icon -->
+            </div>
+            <div class="detail-box">
+              <h5>Return Easily</h5>
+              <p>Return books hassle-free before the due date to keep our library flowing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="icon-box">
+              <i class="fas fa-headset"></i> <!-- Support Icon -->
+            </div>
+            <div class="detail-box">
+              <h5>24/7 Support</h5>
+              <p>Get assistance anytime with our dedicated customer support team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</section>
+<!-- end service section -->
+
+</div>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,135 @@
+
+/* Center the form */
+.devise-container {
+    max-width:320px;
+    width:90%;
+    margin:0 auto;
+    margin-top: 10%;
+    background-color:#ffffff;
+    margin-bottom: 10%;
+    padding:40px;
+    border-radius:4px;
+    color:#505e6c;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.1);
+}
+
+/* Form Fields */
+.devise-container input {
+    background:#f7f9fc;
+    border:none;
+    border-bottom:1px solid #dfe7f1;
+    border-radius:0;
+    box-shadow:none;
+    outline:none;
+    color:inherit;
+    text-indent:8px;
+    height:30px;
+    width:100%;
+
+}
+
+/* Submit Button */
+.devise-container input[type="submit"] {
+    background:#ffffff;
+  border:none;
+  border-radius:4px;
+  padding:20px;
+  box-shadow:none;
+  margin-top:26px;
+  text-shadow:none;
+  outline:none !important;
+    cursor:pointer;
+    color:#505e6c;
+    font-size:16px;
+}
+
+.devise-container input[type="submit"]:hover {
+    background: #ffff;
+    box-shadow: none;
+
+}
+
+/* Links */
+.devise-container a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.devise-container a:hover {
+    text-decoration: underline;
+}
+
+/* Error Messages */
+.error-messages {
+    background: #ffdddd;
+    color: #d8000c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Flash Messages */
+.flash-message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.flash-message.notice {
+    background: #d4edda;
+    color: #155724;
+}
+
+.flash-message.alert {
+    background: #f8d7da;
+    color: #721c24;
+}
+/* Hide the default checkbox */
+.hidden-checkbox {
+    display: none;
+  }
+  
+  /* Style the custom checkbox */
+  .custom-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #3498db; /* Blue border */
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    margin-top: 12px;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  
+  /* Add checkmark when checked */
+  .hidden-checkbox:checked + .custom-checkbox::after {
+    content: "\2713"; /* Unicode checkmark */
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    line-height: 16px;
+    position: absolute;
+    top: 0;
+    left: 2px;
+  }
+  
+  /* Change background when checked */
+  .hidden-checkbox:checked + .custom-checkbox {
+    background-color: #3498db; /* Blue background */
+    border-color: #3498db;
+  }
+  
+  /* Style the label */
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+  }
+  

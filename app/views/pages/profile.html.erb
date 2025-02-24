@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Profile</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", media: "all" %>
+</head>
+<body>
+
+
+
+ <div class="profile-container">
+  <h1>Profile</h1>
+  
+  <!-- Profile Picture -->
+  <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
+  
+  <div class="profile-details">
+    <p><strong>Name:</strong> <%= current_user.name %></p>
+    <p><strong>Email:</strong> <%= current_user.email %></p>
+    <p><strong>Member Since:</strong> <%= current_user.created_at.strftime("%B %Y") %></p>
+    <p><strong>Books Borrowed:</strong> <%= current_user.borrowings.count %></p>
+    <p><strong>Favorite Genre:</strong> TBD</p>
+
+    <% last_borrowed = current_user.borrowings.order(created_at: :desc).first %>
+    <% if last_borrowed.present? %>
+      <p><strong>Last Book Borrowed:</strong> "<%= last_borrowed.book.title %>" by <%= last_borrowed.book.author %></p>
+    <% else %>
+      <p><strong>Last Book Borrowed:</strong> No books borrowed yet</p>
+    <% end %>
+
+    <p><strong>Pending Returns:</strong> <%= current_user.borrowings.where(returned: false).count %></p>
+  </div>
+</div>
+
+</body>
+</html>
+
+

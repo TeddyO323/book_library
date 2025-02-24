@@ -1,0 +1,11 @@
+one:
+  user: user_one  # ✅ Matches users.yml
+  book: one       # ✅ Matches books.yml
+  due_date: 2025-02-20
+  returned: false
+
+two:
+  user: user_two  # ✅ Matches users.yml
+  book: two       # ✅ Matches books.yml
+  due_date: 2025-02-20
+  returned: false
