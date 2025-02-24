@@ -185,6 +185,3 @@ This project is **open-source** under the **MIT License**.
 For issues or suggestions, feel free to open an issue on GitHub. 🚀
 
 ---
-
-Let me know if you want to add **anything else!** 🚀
-
